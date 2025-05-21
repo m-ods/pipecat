@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `UserBotLatencyLogObserver`. This is an observer that logs the latency
+  between when the user stops speaking and when the bot starts speaking. This
+  gives you an initial idea on how quickly the AI services respond.
+
 - Added `PipelineTask.add_observer()` and `PipelineTask.remove_observer()` to
   allow mangaging observers at runtime. This is useful for cases where the task
   is passed around to other code components that might want to observe the
