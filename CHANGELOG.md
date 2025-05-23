@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `SarvamTTSService`, which implements Sarvam AI's TTS API:
+  https://docs.sarvam.ai/api-reference-docs/text-to-speech/convert.
+
 - Added `PipelineTask.add_observer()` and `PipelineTask.remove_observer()` to
   allow mangaging observers at runtime. This is useful for cases where the task
   is passed around to other code components that might want to observe the
@@ -73,6 +76,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updated the default model for `AnthropicLLMService` to
+  `claude-sonnet-4-20250514`.
+
+- Updated the default model for `GeminiMultimodalLiveLLMService` to
+  `models/gemini-2.5-flash-preview-native-audio-dialog`.
+
 - `BaseTextFilter` methods `filter()`, `update_settings()`,
   `handle_interruption()` and `reset_interruption()` are now async.
 
@@ -108,6 +117,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed an issue with `ElevenLabsTTSService` where changing the model or voice
+  while the service is running wasn't working.
+
 - Fixed an issue that would cause multiple instances of the same class to behave
   incorrectly if any of the given constructor arguments defaulted to a mutable
   value (e.g. lists, dictionaries, objects).
@@ -123,8 +135,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Other
 
-- Added foundation example `07y-minimax-http.py` to show how to use the
-  `MiniMaxHttpTTSService`.
+- Added foundation examples `07y-interruptible-minimax.py` and
+  `07z-interruptible-sarvam.py`to show how to use the `MiniMaxHttpTTSService`
+  and `SarvamTTSService`, respectively.
 
 - Added an `open-telemetry-tracing` example, showing how to setup tracing. The
   example also includes Jaeger as an open source OpenTelemetry client to review
