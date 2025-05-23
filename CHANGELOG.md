@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added `TavusTransport`, a new transport implementation compatible with any 
+  Pipecat pipeline. When using the `TavusTransport`the Pipecat bot will 
+  connect in the same room as the Tavus Avatar and the user.
+
 - Added `SarvamTTSService`, which implements Sarvam AI's TTS API:
   https://docs.sarvam.ai/api-reference-docs/text-to-speech/convert.
 
@@ -75,6 +79,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Allow passing observers to `run_test()` while running unit tests.
 
 ### Changed
+
+- Refactored the `TavusVideoService`, so it acts like a proxy, sending audio to 
+  Tavus and receiving both audio and video. This will make `TavusVideoService` usable
+  with any Pipecat pipeline and with any transport. This is a **breaking change**,
+  check the `examples/foundational/21a-tavus-layer-small-webrtc.py` to see how to
+  use it.
 
 - Updated the default model for `AnthropicLLMService` to
   `claude-sonnet-4-20250514`.
